@@ -61,8 +61,8 @@ const SITE_DATA = {
           image: "Lakshith.jpg",
           members: [
             { name: "Yashraj Shetty", image: "" },
-            { name: "Bhavin D S", image: "" },
-            { name: "Ashwin", image: "" },
+            { name: "Bhavin D S", image: "bhavin d s.jpg" },
+            { name: "Ashwin", image: "Ashwin.jpg" },
           ],
         },
         {
@@ -70,19 +70,19 @@ const SITE_DATA = {
           hod: "Prateek Moras",
           image: "Prateek Moras.png",
           members: [
-            { name: "Anson Rodrigues", image: "" },
-            { name: "Faustina Fernandes", image: "" },
-            { name: "Ashton", image: "" },
-            { name: "Issac Rodrigues", image: "" },
-            { name: "Jessel", image: "" },
+            { name: "Anson Rodrigues", image: "Anson.png" },
+            { name: "Faustina Fernandes", image: "FMF.JPG" },
+            { name: "Ashton", image: "Ashton Calvin Pinto.png" },
+            { name: "Issac Rodrigues", image: "Isaac Rodrigues.jpg" },
+            { name: "Jessel", image: "Jessel Crasta.jpg" },
           ],
         },
         {
           name: "Braking",
           hod: "Akash K Y",
-          image: "Akash K Y.jpg",
+          image: "Akash KY.jpg",
           members: [
-            { name: "Jeswin", image: "" },
+            { name: "Jeswin", image: "Jeswin Colaco.jpg" },
           ],
         },
         {
@@ -91,14 +91,14 @@ const SITE_DATA = {
           image: "Yashas G.jpg",
           members: [
             { name: "Tanisha Shetty", image: "Tanisha Shetty.jpeg" },
-            { name: "Chithara", image: "" },
-            { name: "Jasmine", image: "" },
-            { name: "Prathik Ganiga", image: "" },
-            { name: "Neha Katarki", image: "" },
-            { name: "Prathvish", image: "" },
-            { name: "Yashvith", image: "" },
-            { name: "Avinia", image: "" },
-            { name: "Deyon", image: "" },
+            { name: "Chithara", image: "Chitthara .jpg" },
+            { name: "Jasmine", image: "jasmine.jpg" },
+            { name: "Prathik Ganiga", image: "Prathik.png" },
+            { name: "Neha Katarki", image: "Neha.jpg" },
+            { name: "Prathvish", image: "Prathvish .jpg" },
+            { name: "Yashvith", image: "Yashvith.jpg" },
+            { name: "Avinia", image: "Avinia Viola Pinto.jpeg" },
+            { name: "Deyon", image: "Deyon Dsouza.jpg" },
             { name: "Prajwal", image: "" }
 
           ],
@@ -108,7 +108,7 @@ const SITE_DATA = {
           hod: "Nishanth",
           image: "Nishanth.jpg",
           members: [
-            { name: "Jeevan", image: "" },
+            { name: "Jeevan", image: "Jeevan V S.jpg" },
              ],
         },
       ],
@@ -135,15 +135,15 @@ const SITE_DATA = {
             { name: "Christina Fernandes", image: "Christina Fernandes.jpg" },
             { name: "Pranav R", image: "Pranav R.jpg" },
             { name: "Pratheek Moras", image: "Prateek Moras.png" },
-            { name: "Anson Rodrigues", image: "Anson Rodrigues.jpg" },
-            { name: "Faustina Fernandes", image: "Faustina Fernandes.jpg" },
+            { name: "Anson Rodrigues", image: "Anson.png" },
+            { name: "Faustina Fernandes", image: "FMF.JPG" },
           ],
         },
         {
           name: "Braking",
           hod: "Denzil Pinto",
           members: [
-            { name: "Akash K Y", image: "Akash K Y.jpg" },
+            { name: "Akash K Y", image: "Akash KY.jpg" },
           ],
         },
         {
@@ -154,10 +154,10 @@ const SITE_DATA = {
             { name: "Nikhil Kulal", image: "Nikhil Kulal.jpg" },
             { name: "Tanisha Shetty", image: "Tanisha Shetty.jpeg" },
             { name: "Yashas G", image: "Yashas G.jpg" },
-            { name: "Chithara", image: "Chithara.jpg" },
-            { name: "Jasmine", image: "Jasmine.jpg" },
-            { name: "Prathik Ganiga", image: "Prathik Ganiga.jpg" },
-            { name: "Neha Katarki", image: "Neha Katarki.jpg" },
+            { name: "Chithara", image: "Chitthara .jpg" },
+            { name: "Jasmine", image: "jasmine.jpg" },
+            { name: "Prathik Ganiga", image: "Prathik.png" },
+            { name: "Neha Katarki", image: "Neha.jpg" },
           ],
         },
         {
