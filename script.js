@@ -561,31 +561,53 @@ document.getElementById('contactForm').addEventListener('submit', e => {
     console.error('Error writing to localStorage:', err);
   }
 
-  // 2. Email sending (Demo simulation vs actual EmailJS send)
-  if (isDemoMode) {
-    console.warn('EmailJS is in demo/fallback mode (credentials are default placeholders). Message was saved to localStorage.');
-    setTimeout(() => {
-      btn.textContent = 'Message Sent (Demo Mode)! ✓'; btn.style.background = '#33ff88';
-      e.target.reset();
-      setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
-    }, 1000);
-  } else {
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      from_name: nameVal,
-      from_email: emailVal,
-      message: messageVal,
-    })
-    .then(() => {
-      btn.textContent = 'Message Sent! ✓'; btn.style.background = '#33ff88';
-      e.target.reset();
-      setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
-    })
-    .catch((err) => {
-      console.error('EmailJS error:', err);
-      btn.textContent = 'Failed — Try Again'; btn.style.background = '#ff4444';
-      setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
-    });
-  }
+  // 2. Try submitting to Backend API first
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: nameVal, email: emailVal, message: messageVal })
+  })
+  .then(res => {
+    if (!res.ok) {
+      throw new Error(`Backend API returned status ${res.status}`);
+    }
+    return res.json();
+  })
+  .then(data => {
+    console.log('Successfully submitted to backend API:', data);
+    btn.textContent = 'Message Sent! ✓'; btn.style.background = '#33ff88';
+    e.target.reset();
+    setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+  })
+  .catch(apiErr => {
+    console.warn('Backend API submission failed or unreachable. Falling back to EmailJS/Demo. Error:', apiErr.message);
+
+    // 3. Email sending fallback (Demo simulation vs actual EmailJS send)
+    if (isDemoMode) {
+      console.warn('EmailJS is in demo/fallback mode (credentials are default placeholders).');
+      setTimeout(() => {
+        btn.textContent = 'Message Sent (Demo Mode)! ✓'; btn.style.background = '#33ff88';
+        e.target.reset();
+        setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+      }, 1000);
+    } else {
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: nameVal,
+        from_email: emailVal,
+        message: messageVal,
+      })
+      .then(() => {
+        btn.textContent = 'Message Sent! ✓'; btn.style.background = '#33ff88';
+        e.target.reset();
+        setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+      })
+      .catch((err) => {
+        console.error('EmailJS error:', err);
+        btn.textContent = 'Failed — Try Again'; btn.style.background = '#ff4444';
+        setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+      });
+    }
+  });
 });
 
 /* ===== 3D CARD TILT EFFECT ===== */
